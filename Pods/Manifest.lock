@@ -1,0 +1,13 @@
+PODS:
+  - Alamofire (3.3.0)
+  - SwiftHEXColors (1.0.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - SwiftHEXColors
+
+SPEC CHECKSUMS:
+  Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
+  SwiftHEXColors: b0ecc7bd83a1aa2e1956f9ba51f55ebb2bcf86ef
+
+COCOAPODS: 0.39.0
