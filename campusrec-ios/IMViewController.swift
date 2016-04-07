@@ -16,13 +16,25 @@ class IMViewController: UIViewController {
     
     let url = "http://fsucr.setmore.com/"
     
+    var unfocusedView: UIView!
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        unfocusedView = UIView()
+        unfocusedView.frame = self.view.frame
+        unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
+        unfocusedView.alpha = 0.5
+        self.view.addSubview(unfocusedView)
+        unfocusedView.hidden = true
+
 
         if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            menuButton.target = self
+            menuButton.action = "pressedMenuButton"
+            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
         
@@ -48,5 +60,10 @@ class IMViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func pressedMenuButton() {
+        self.revealViewController().revealToggle(self)
+        unfocusedView.hidden = false
+    }
 
 }

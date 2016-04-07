@@ -44,3 +44,17 @@ let COLOR_PRIMARY_TEXT = UIColor(netHex: 0x292F33)
 let COLOR_ODD_ROWS = UIColor(netHex: 0xF9F9F9)
 let COLOR_ACCENT_DARK = UIColor(netHex: 0x761013)
 
+
+//***************************************************
+// MARK: - Locations
+//***************************************************
+
+
+let LOCATION_STRING_ARRAY = [
+    "Leach Recreation Center",
+    "FSU Reservation",
+    "Fitness & Movement Clinic",
+    "Rec SportsPlex",
+    "Main Campus Fields",
+    "Westside Courts"
+]

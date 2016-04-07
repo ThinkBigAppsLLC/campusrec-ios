@@ -10,6 +10,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +31,11 @@ class MenuTableViewController: UITableViewController {
             self.navigationItem.leftBarButtonItem!.target = self.revealViewController()
             self.navigationItem.leftBarButtonItem!.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            //self.revealViewController().frontViewShadowRadius = 0
+            //self.revealViewController().frontViewShadowOffset = CGSizeMake(5, 0)
         }
+        
+        
         
     
 
@@ -95,18 +100,65 @@ class MenuTableViewController: UITableViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    
+        switch segue.identifier! {
+        case "toHome":
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! HomeViewController
+            if upcomingVC.unfocusedView != nil {
+                upcomingVC.unfocusedView.hidden = true
+            }
+            break
+        case "toStatus":
+            
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! StatusViewController
+            if upcomingVC.unfocusedView != nil {
+                upcomingVC.unfocusedView.hidden = true
+            }
+            break
+        case "toCalendar":
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! CalendarViewController
+            if upcomingVC.unfocusedView != nil {
+                upcomingVC.unfocusedView.hidden = true
+            }
+            break
+        case "toIM":
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! IMViewController
+            if upcomingVC.unfocusedView != nil {
+                upcomingVC.unfocusedView.hidden = true
+            }
+            break
+        case "toReservations":
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! ReservationsViewController
+            if upcomingVC.unfocusedView != nil {
+                upcomingVC.unfocusedView.hidden = true
+            }
+            break
+        case "toContact":
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! ContactViewController
+            if upcomingVC.unfocusedView != nil {
+                upcomingVC.unfocusedView.hidden = true
+            }
+            break
+        default:
+            break
+            
+        }
+        //let upcomingViewController = segue.destinationViewController
+        //if upcomingViewController.unfocusedView != nil {
+            
+        
     }
-    */
+    
     
     //***************************************************
     // MARK: - Custom Methods
     //***************************************************
-
 }
+

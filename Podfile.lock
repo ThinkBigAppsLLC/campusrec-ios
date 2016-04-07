@@ -2,6 +2,7 @@ PODS:
   - Alamofire (3.3.0)
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
+  - CVCalendar (1.2.9)
   - ImageSlideshow (0.4.0):
     - ImageSlideshow/Core (= 0.4.0)
   - ImageSlideshow/Alamofire (0.4.0):
@@ -11,12 +12,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - CVCalendar (~> 1.2.9)
   - ImageSlideshow (~> 0.3)
   - ImageSlideshow/Alamofire
 
 SPEC CHECKSUMS:
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6
   ImageSlideshow: 0d3632bc0c2b4d3fff24a49ce4d3022af8238b03
 
 COCOAPODS: 0.39.0

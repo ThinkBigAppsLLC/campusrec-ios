@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61074C8C1CB6C57E008192CB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61074C8B1CB6C57E008192CB /* HomeTableViewCell.swift */; };
 		6150CABB1CB59EB8007D9550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150CABA1CB59EB8007D9550 /* HomeViewController.swift */; };
 		6150CAC21CB59F45007D9550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6150CAC11CB59F45007D9550 /* SWRevealViewController.m */; };
 		6150CAC61CB5A1B7007D9550 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150CAC51CB5A1B7007D9550 /* MenuTableViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		1458F45CD79020C4940CE2C5 /* Pods-campusrec-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-campusrec-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-campusrec-ios/Pods-campusrec-ios.release.xcconfig"; sourceTree = "<group>"; };
+		61074C8B1CB6C57E008192CB /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		6150CABA1CB59EB8007D9550 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6150CAC01CB59F45007D9550 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		6150CAC11CB59F45007D9550 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				6150CABA1CB59EB8007D9550 /* HomeViewController.swift */,
+				61074C8B1CB6C57E008192CB /* HomeTableViewCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			files = (
 				6150CAC61CB5A1B7007D9550 /* MenuTableViewController.swift in Sources */,
 				6150CACA1CB5C41F007D9550 /* Extensions.swift in Sources */,
+				61074C8C1CB6C57E008192CB /* HomeTableViewCell.swift in Sources */,
 				61DCA9181CB6AF3500AA441B /* ReservationsViewController.swift in Sources */,
 				61DCA9141CB6AF0B00AA441B /* IMViewController.swift in Sources */,
 				61DCA9161CB6AF1600AA441B /* CalendarViewController.swift in Sources */,
