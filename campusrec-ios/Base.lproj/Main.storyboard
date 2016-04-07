@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="siH-nR-3n6">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="1c7-9B-atf"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="1c7-9B-atf"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="1c7-9B-atf" id="8R3-Vk-akQ"/>
@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="3058" y="-210"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Menu Navigation View Controller-->
         <scene sceneID="oFY-9f-VjJ">
             <objects>
-                <navigationController id="PEb-f4-zE0" sceneMemberID="viewController">
+                <navigationController id="PEb-f4-zE0" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bkM-EL-62J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -50,23 +50,23 @@
         <scene sceneID="KQ8-P8-0ga">
             <objects>
                 <tableViewController id="oRy-bp-m2G" customClass="MenuTableViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="voc-g9-YgG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="voc-g9-YgG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="61" id="enN-8p-wsS" customClass="MenuTableViewCell" customModule="campusrec_ios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="61" id="enN-8p-wsS" customClass="MenuTableViewCell" customModule="campusrec_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="enN-8p-wsS" id="DOX-Lp-pyd">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-EJ-og1">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-EJ-og1">
                                             <rect key="frame" x="8" y="8" width="44" height="44"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Menu Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krn-P9-xH8">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" text="Menu Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krn-P9-xH8">
                                             <rect key="frame" x="60" y="8" width="532" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -95,21 +95,16 @@
                             <outlet property="delegate" destination="oRy-bp-m2G" id="s8P-af-TGl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JjA-GJ-SPM">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="x1u-tl-eqf"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="x1u-tl-eqf" id="giU-Ea-kWl"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="JjA-GJ-SPM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Eh-qt-sNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1351" y="-224"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Menu Navigation View Controller-->
         <scene sceneID="f67-M0-mfT">
             <objects>
-                <navigationController id="Tz0-rH-eop" sceneMemberID="viewController">
+                <navigationController id="Tz0-rH-eop" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HET-gJ-lSe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -136,8 +131,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="PEb-f4-zE0" kind="custom" identifier="sw_front" id="5f7-N4-8Ta"/>
-                        <segue destination="Tz0-rH-eop" kind="custom" identifier="sw_rear" id="nNL-Du-Vf8"/>
+                        <segue destination="PEb-f4-zE0" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="5f7-N4-8Ta"/>
+                        <segue destination="Tz0-rH-eop" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="nNL-Du-Vf8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,4 +140,7 @@
             <point key="canvasLocation" x="531" y="498"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_menu" width="24" height="24"/>
+    </resources>
 </document>

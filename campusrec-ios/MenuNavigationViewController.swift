@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  MenuNavigationViewController.swift
 //  campusrec-ios
 //
 //  Created by Tyler Hunnefeld on 4/6/16.
@@ -8,26 +8,16 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class MenuNavigationViewController: UINavigationController {
 
-    @IBOutlet var menuButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-           
+        let stripeView: UIView = UIView()
+        stripeView.frame = CGRectMake(0, 0, self.view.frame.width, 20)
+        stripeView.backgroundColor = COLOR_ACCENT_DARK
+        self.view.addSubview(stripeView)
         
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
 
     override func didReceiveMemoryWarning() {

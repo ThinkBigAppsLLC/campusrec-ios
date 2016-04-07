@@ -9,17 +9,30 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-
-    @IBOutlet var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = COLOR_SECONDARY_BACKGROUND
+        
+        //Set up custom bar button
+        let button: UIButton = UIButton(type: .Custom)
+        button.setImage(UIImage(named: "Logo"), forState: .Normal)
+        //button.addTarget(self, action: "pressedButton", forControlEvents: UIControlEvents.TouchUpInside)
+        button.frame = CGRectMake(0, 0, 31, 31)
+        
+        //Apply custom bar button
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        //menuButton = barButton
+        
         if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            self.navigationItem.leftBarButtonItem!.target = self.revealViewController()
+            self.navigationItem.leftBarButtonItem!.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+    
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -48,7 +61,8 @@ class MenuTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as! MenuTableViewCell
 
-        cell.menuLabel.text = MENU_STRING_ARRAY[indexPath.row]
+        cell.menuLabel.text = MENU_STRING_ARRAY[indexPath.row][0]
+        cell.menuButton.setImage(UIImage (named: MENU_STRING_ARRAY[indexPath.row][1]), forState: .Normal)
         
 
         return cell
@@ -99,5 +113,9 @@ class MenuTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //***************************************************
+    // MARK: - Custom Methods
+    //***************************************************
 
 }

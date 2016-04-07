@@ -1,21 +1,15 @@
 PODS:
   - Alamofire (3.3.0)
-  - DrawerController (1.1.0):
-    - DrawerController/Core (= 1.1.0)
-    - DrawerController/DrawerVisualStates (= 1.1.0)
-  - DrawerController/Core (1.1.0)
-  - DrawerController/DrawerVisualStates (1.1.0):
-    - DrawerController/Core
-  - SwiftHEXColors (1.0.4)
+  - ImageSlideshow (0.4.0):
+    - ImageSlideshow/Core (= 0.4.0)
+  - ImageSlideshow/Core (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
-  - DrawerController (~> 1.0)
-  - SwiftHEXColors
+  - ImageSlideshow (~> 0.3)
 
 SPEC CHECKSUMS:
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
-  DrawerController: 8fd56e6238399a08c4af054fbea0ef8669cd81f3
-  SwiftHEXColors: b0ecc7bd83a1aa2e1956f9ba51f55ebb2bcf86ef
+  ImageSlideshow: 0d3632bc0c2b4d3fff24a49ce4d3022af8238b03
 
 COCOAPODS: 0.39.0

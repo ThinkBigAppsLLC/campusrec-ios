@@ -4,5 +4,5 @@ use_frameworks!
 
 target 'campusrec-ios' do
     pod 'Alamofire'
-    pod 'SwiftHEXColors'
+    pod 'ImageSlideshow', '~> 0.3'
 end
