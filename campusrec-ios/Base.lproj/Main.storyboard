@@ -3,12 +3,129 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
+        <scene sceneID="se2-Jv-dyj">
+            <objects>
+                <viewController id="ZJU-MK-UWQ" customClass="HomeViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nFl-8k-Rei"/>
+                        <viewControllerLayoutGuide type="bottom" id="n3r-TE-Tge"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PTO-hk-4mI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="siH-nR-3n6">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="1c7-9B-atf"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="1c7-9B-atf" id="8R3-Vk-akQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eG7-Hw-UaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="-210"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oFY-9f-VjJ">
+            <objects>
+                <navigationController id="PEb-f4-zE0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bkM-EL-62J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZJU-MK-UWQ" kind="relationship" relationship="rootViewController" id="JnY-WB-T4U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBQ-Qp-lGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="-210"/>
+        </scene>
+        <!--Menu Table View Controller-->
+        <scene sceneID="KQ8-P8-0ga">
+            <objects>
+                <tableViewController id="oRy-bp-m2G" customClass="MenuTableViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="voc-g9-YgG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="61" id="enN-8p-wsS" customClass="MenuTableViewCell" customModule="campusrec_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="enN-8p-wsS" id="DOX-Lp-pyd">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-EJ-og1">
+                                            <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Menu Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krn-P9-xH8">
+                                            <rect key="frame" x="60" y="8" width="532" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Krn-P9-xH8" firstAttribute="top" secondItem="DOX-Lp-pyd" secondAttribute="top" constant="8" id="8Lv-FI-sTv"/>
+                                        <constraint firstItem="6dv-EJ-og1" firstAttribute="leading" secondItem="DOX-Lp-pyd" secondAttribute="leading" constant="8" id="8a0-PN-EPp"/>
+                                        <constraint firstItem="6dv-EJ-og1" firstAttribute="top" secondItem="DOX-Lp-pyd" secondAttribute="top" constant="8" id="AVe-Gg-wCV"/>
+                                        <constraint firstAttribute="trailing" secondItem="Krn-P9-xH8" secondAttribute="trailing" constant="8" id="WB7-67-Mke"/>
+                                        <constraint firstItem="6dv-EJ-og1" firstAttribute="width" secondItem="Krn-P9-xH8" secondAttribute="width" multiplier="1:12" id="eco-Xp-Rst"/>
+                                        <constraint firstItem="Krn-P9-xH8" firstAttribute="leading" secondItem="6dv-EJ-og1" secondAttribute="trailing" constant="8" id="gYZ-Fc-gml"/>
+                                        <constraint firstAttribute="bottom" secondItem="6dv-EJ-og1" secondAttribute="bottom" constant="8" id="iHw-YJ-VUk"/>
+                                        <constraint firstAttribute="bottom" secondItem="Krn-P9-xH8" secondAttribute="bottom" constant="8" id="qfv-Aq-5LA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="menuButton" destination="6dv-EJ-og1" id="G3W-l0-MyI"/>
+                                    <outlet property="menuLabel" destination="Krn-P9-xH8" id="Zlp-uf-PSQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oRy-bp-m2G" id="UDB-m4-nUG"/>
+                            <outlet property="delegate" destination="oRy-bp-m2G" id="s8P-af-TGl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JjA-GJ-SPM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="x1u-tl-eqf"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="x1u-tl-eqf" id="giU-Ea-kWl"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Eh-qt-sNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1351" y="-224"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f67-M0-mfT">
+            <objects>
+                <navigationController id="Tz0-rH-eop" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HET-gJ-lSe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oRy-bp-m2G" kind="relationship" relationship="rootViewController" id="qFb-Mw-vgq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzZ-qN-vPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="531" y="-224"/>
+        </scene>
+        <!--Reveal View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,6 +135,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="PEb-f4-zE0" kind="custom" identifier="sw_front" id="5f7-N4-8Ta"/>
+                        <segue destination="Tz0-rH-eop" kind="custom" identifier="sw_rear" id="nNL-Du-Vf8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
