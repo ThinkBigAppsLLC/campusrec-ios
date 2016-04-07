@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -17,23 +18,215 @@
                     <view key="view" contentMode="scaleToFill" id="PTO-hk-4mI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ7-f8-dIo">
+                                <rect key="frame" x="0.0" y="59" width="600" height="541"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWm-kq-qCA">
+                                        <rect key="frame" x="0.0" y="235" width="600" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="DN3-r7-RqH"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GQ-zh-DSw" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5GQ-zh-DSw" secondAttribute="height" multiplier="5:2" id="AYh-F6-s6z"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="oWm-kq-qCA" secondAttribute="bottom" constant="246" id="2WQ-AW-Dz0"/>
+                                    <constraint firstItem="5GQ-zh-DSw" firstAttribute="top" secondItem="rQ7-f8-dIo" secondAttribute="top" id="T7O-bF-vyo"/>
+                                    <constraint firstItem="oWm-kq-qCA" firstAttribute="top" secondItem="5GQ-zh-DSw" secondAttribute="bottom" constant="-5" id="Xg2-Am-0j0"/>
+                                    <constraint firstItem="5GQ-zh-DSw" firstAttribute="width" secondItem="rQ7-f8-dIo" secondAttribute="width" id="YJ9-I2-Lgs"/>
+                                    <constraint firstAttribute="trailing" secondItem="oWm-kq-qCA" secondAttribute="trailing" id="eLQ-OU-mAc"/>
+                                    <constraint firstItem="5GQ-zh-DSw" firstAttribute="leading" secondItem="rQ7-f8-dIo" secondAttribute="leading" id="fN8-8G-vMl"/>
+                                    <constraint firstItem="oWm-kq-qCA" firstAttribute="leading" secondItem="rQ7-f8-dIo" secondAttribute="leading" id="ntW-70-mcm"/>
+                                    <constraint firstAttribute="trailing" secondItem="5GQ-zh-DSw" secondAttribute="trailing" id="pYJ-4U-p4M"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rQ7-f8-dIo" firstAttribute="top" secondItem="nFl-8k-Rei" secondAttribute="bottom" constant="-5" id="4us-bP-4Z7"/>
+                            <constraint firstItem="rQ7-f8-dIo" firstAttribute="leading" secondItem="PTO-hk-4mI" secondAttribute="leading" id="JGP-cx-QSJ"/>
+                            <constraint firstItem="rQ7-f8-dIo" firstAttribute="width" secondItem="PTO-hk-4mI" secondAttribute="width" id="Vl9-Og-LbR"/>
+                            <constraint firstAttribute="trailing" secondItem="rQ7-f8-dIo" secondAttribute="trailing" id="YQh-Lh-cuI"/>
+                            <constraint firstItem="n3r-TE-Tge" firstAttribute="top" secondItem="rQ7-f8-dIo" secondAttribute="bottom" id="rOF-zY-Kqi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="siH-nR-3n6">
                         <barButtonItem key="leftBarButtonItem" image="ic_menu" id="1c7-9B-atf"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="1c7-9B-atf" id="8R3-Vk-akQ"/>
+                        <outlet property="slideshow" destination="5GQ-zh-DSw" id="wGv-Wf-0Fm"/>
+                        <outlet property="underView" destination="oWm-kq-qCA" id="bQS-4F-fMY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG7-Hw-UaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3058" y="-210"/>
         </scene>
-        <!--Menu Navigation View Controller-->
+        <!--Status-->
+        <scene sceneID="GQ0-sa-qu6">
+            <objects>
+                <viewController title="Status" id="ms9-q1-E70" customClass="StatusViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NlN-hW-HQi"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZfG-l2-j3w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hH7-r5-7j8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="KJ0-ct-8fB">
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="if7-eI-QWJ"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="if7-eI-QWJ" id="9x9-ky-M04"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1sx-5Y-3RZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="521"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="v3v-e8-nZm">
+            <objects>
+                <viewController id="Lq4-uH-EM4" customClass="CalendarViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vWg-uB-jl6"/>
+                        <viewControllerLayoutGuide type="bottom" id="BmK-GJ-R59"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l1F-kA-ylr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="84G-vP-mZ5">
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="nGS-vm-fVw"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="nGS-vm-fVw" id="QYV-G5-rZe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu7-rk-XF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="1245"/>
+        </scene>
+        <!--IM-->
+        <scene sceneID="w1u-MU-ogh">
+            <objects>
+                <viewController title="IM" id="7R7-tP-8r4" customClass="IMViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="urU-5H-oOf"/>
+                        <viewControllerLayoutGuide type="bottom" id="0oG-R9-gbl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k21-hk-Cw2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fs8-Jo-z8k">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fs8-Jo-z8k" firstAttribute="leading" secondItem="k21-hk-Cw2" secondAttribute="leading" id="4m0-jg-JPU"/>
+                            <constraint firstAttribute="bottom" secondItem="fs8-Jo-z8k" secondAttribute="bottom" id="MoA-nF-XOJ"/>
+                            <constraint firstItem="fs8-Jo-z8k" firstAttribute="top" secondItem="urU-5H-oOf" secondAttribute="bottom" id="ZEr-Zl-OiI"/>
+                            <constraint firstAttribute="trailing" secondItem="fs8-Jo-z8k" secondAttribute="trailing" id="wDn-Jr-FQP"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Syh-QE-sf3">
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="7gc-sv-o8K"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="7gc-sv-o8K" id="sky-wx-xhy"/>
+                        <outlet property="webView" destination="fs8-Jo-z8k" id="2rf-Gs-fff"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZt-1c-VtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="1973"/>
+        </scene>
+        <!--Reservations View Controller-->
+        <scene sceneID="wOt-sO-ge8">
+            <objects>
+                <viewController id="jZQ-wr-69W" customClass="ReservationsViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yEm-MV-YzC"/>
+                        <viewControllerLayoutGuide type="bottom" id="LNO-Aq-YpM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QtM-Zc-nC1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="z9g-34-Web">
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="qsy-Ji-wHv"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="qsy-Ji-wHv" id="cql-V8-mW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8C-va-6bv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="2711"/>
+        </scene>
+        <!--Reservations Nav-->
+        <scene sceneID="yhC-i4-kwF">
+            <objects>
+                <navigationController title="Reservations Nav" id="tE9-S8-A27" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J1A-Rp-be5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jZQ-wr-69W" kind="relationship" relationship="rootViewController" id="VLs-Iz-7aF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsf-QM-Oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="2711"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LME-Mh-bfC">
+            <objects>
+                <viewController id="C5z-nE-MVt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nd3-a3-fRc"/>
+                        <viewControllerLayoutGuide type="bottom" id="viI-sF-5Jf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ssi-EZ-LUY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VwQ-uL-9ik"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPE-4I-RHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="3483"/>
+        </scene>
+        <!--Home Nav-->
         <scene sceneID="oFY-9f-VjJ">
             <objects>
-                <navigationController id="PEb-f4-zE0" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController title="Home Nav" id="PEb-f4-zE0" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bkM-EL-62J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -45,6 +238,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBQ-Qp-lGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2226" y="-210"/>
+        </scene>
+        <!--Status Nav-->
+        <scene sceneID="pfX-Fj-TfI">
+            <objects>
+                <navigationController title="Status Nav" id="UG5-qR-tgH" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GYZ-WP-Zhj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ms9-q1-E70" kind="relationship" relationship="rootViewController" id="0ZR-c7-DqS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEu-av-w85" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="521"/>
+        </scene>
+        <!--Calendar Nav-->
+        <scene sceneID="7p2-hl-omZ">
+            <objects>
+                <navigationController title="Calendar Nav" id="bcj-oP-gkL" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6e4-HN-jOy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lq4-uH-EM4" kind="relationship" relationship="rootViewController" id="pdb-zf-q4Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbV-mc-GF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="1245"/>
+        </scene>
+        <!--IM Nav-->
+        <scene sceneID="APb-05-noz">
+            <objects>
+                <navigationController title="IM Nav" id="EqP-L9-6Kb" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9T3-X4-8Lc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7R7-tP-8r4" kind="relationship" relationship="rootViewController" id="O9g-IV-Qrl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hE-1a-6PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="1973"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="KQ8-P8-0ga">
@@ -84,6 +325,7 @@
                                         <constraint firstAttribute="bottom" secondItem="Krn-P9-xH8" secondAttribute="bottom" constant="8" id="qfv-Aq-5LA"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="menuButton" destination="6dv-EJ-og1" id="G3W-l0-MyI"/>
                                     <outlet property="menuLabel" destination="Krn-P9-xH8" id="Zlp-uf-PSQ"/>
@@ -96,6 +338,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JjA-GJ-SPM"/>
+                    <connections>
+                        <segue destination="PEb-f4-zE0" kind="custom" identifier="toHome" customClass="SWRevealViewControllerSeguePushController" id="QdC-0E-YNV"/>
+                        <segue destination="UG5-qR-tgH" kind="custom" identifier="toStatus" customClass="SWRevealViewControllerSeguePushController" id="QDo-KU-eTk"/>
+                        <segue destination="bcj-oP-gkL" kind="custom" identifier="toCalendar" customClass="SWRevealViewControllerSeguePushController" id="m7z-dl-YFD"/>
+                        <segue destination="EqP-L9-6Kb" kind="custom" identifier="toIM" customClass="SWRevealViewControllerSeguePushController" id="kZg-fO-AgC"/>
+                        <segue destination="tE9-S8-A27" kind="custom" identifier="toReservations" customClass="SWRevealViewControllerSeguePushController" id="Xxk-W7-H8u"/>
+                        <segue destination="icN-o9-CHJ" kind="custom" identifier="toContact" customClass="SWRevealViewControllerSeguePushController" id="k83-3Q-sw9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Eh-qt-sNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,8 +389,101 @@
             </objects>
             <point key="canvasLocation" x="531" y="498"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="BPd-nw-6aB">
+            <objects>
+                <viewController id="hA4-Wd-tLT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k9F-hY-Yef"/>
+                        <viewControllerLayoutGuide type="bottom" id="VUV-eL-eGr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xgg-Co-r5X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OyG-F5-wjB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8b1-BR-ayL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="3483"/>
+        </scene>
+        <!--Contact Nav-->
+        <scene sceneID="Mw2-8F-NlG">
+            <objects>
+                <navigationController title="Contact Nav" id="BQX-Mt-NC5" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9wh-OE-LC7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hA4-Wd-tLT" kind="relationship" relationship="rootViewController" id="8NN-tj-GWg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Xo-Qq-zSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="3483"/>
+        </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="8qT-Md-Pfs">
+            <objects>
+                <viewController id="deY-TU-M7v" customClass="ContactViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="75F-jx-war"/>
+                        <viewControllerLayoutGuide type="bottom" id="WAc-cw-ljb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gfY-Oh-lYx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="HtP-qg-0ej">
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="Diw-v4-tlA"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="Diw-v4-tlA" id="7EG-JI-5Mq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-J5-oYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="3483"/>
+        </scene>
+        <!--Contact Nav-->
+        <scene sceneID="p2K-i3-uGI">
+            <objects>
+                <navigationController title="Contact Nav" id="icN-o9-CHJ" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJG-PE-avc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="deY-TU-M7v" kind="relationship" relationship="rootViewController" id="UDf-eF-Kxl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDI-yB-vtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="3483"/>
+        </scene>
+        <!--Contact Nav-->
+        <scene sceneID="EEx-SF-W9A">
+            <objects>
+                <navigationController title="Contact Nav" id="Z3O-rf-u9r" customClass="MenuNavigationViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sid-K0-WXB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qre-IR-da2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="3483"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_menu" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="QdC-0E-YNV"/>
+    </inferredMetricsTieBreakers>
 </document>

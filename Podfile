@@ -5,4 +5,5 @@ use_frameworks!
 target 'campusrec-ios' do
     pod 'Alamofire'
     pod 'ImageSlideshow', '~> 0.3'
+    pod "ImageSlideshow/Alamofire"
 end
