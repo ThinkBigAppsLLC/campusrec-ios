@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61074C8C1CB6C57E008192CB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61074C8B1CB6C57E008192CB /* HomeTableViewCell.swift */; };
+		61074C8E1CB73ECC008192CB /* Pods_campusrec_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7F586507861069FC3593930 /* Pods_campusrec_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6150CABB1CB59EB8007D9550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150CABA1CB59EB8007D9550 /* HomeViewController.swift */; };
 		6150CAC21CB59F45007D9550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6150CAC11CB59F45007D9550 /* SWRevealViewController.m */; };
 		6150CAC61CB5A1B7007D9550 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150CAC51CB5A1B7007D9550 /* MenuTableViewController.swift */; };
@@ -45,6 +46,20 @@
 			remoteInfo = "campusrec-ios";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		61074C8F1CB73ECC008192CB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				61074C8E1CB73ECC008192CB /* Pods_campusrec_ios.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1458F45CD79020C4940CE2C5 /* Pods-campusrec-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-campusrec-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-campusrec-ios/Pods-campusrec-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -290,6 +305,7 @@
 				61751AAA1CB3329A009C0B6C /* Resources */,
 				F54761E3A8A2B3B2C74601A6 /* Embed Pods Frameworks */,
 				9E46EB0DDF3470CD3B15F90E /* Copy Pods Resources */,
+				61074C8F1CB73ECC008192CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

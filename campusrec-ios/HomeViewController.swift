@@ -114,6 +114,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func pressedMenuButton() {
         
         self.revealViewController().revealToggle(self)
+        let menuVC = self.revealViewController().rearViewController.childViewControllers[0] as! MenuTableViewController
+        menuVC.unfocusedView = self.unfocusedView
+        
         unfocusedView.hidden = false
     }
 

@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         UINavigationBar.appearance().barTintColor = COLOR_ACCENT
         UINavigationBar.appearance().tintColor = COLOR_SECONDARY_BACKGROUND
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : COLOR_SECONDARY_BACKGROUND]
+
         UINavigationBar.appearance().translucent = false
 
         return true

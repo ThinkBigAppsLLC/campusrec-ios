@@ -174,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="3058" y="521"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--Calendar Appearance Delegate-->
         <scene sceneID="v3v-e8-nZm">
             <objects>
                 <viewController id="Lq4-uH-EM4" customClass="CalendarViewController" customModule="campusrec_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,15 +185,53 @@
                     <view key="view" contentMode="scaleToFill" id="l1F-kA-ylr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0B-Ay-N2r" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="101" width="560" height="38"/>
+                                <connections>
+                                    <outlet property="menuViewDelegate" destination="Lq4-uH-EM4" id="atl-1o-ORe"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monthLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN0-Lu-a26">
+                                <rect key="frame" x="255" y="72" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBy-WC-YZ8" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="147" width="560" height="300"/>
+                                <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="calendarAppearanceDelegate" destination="Lq4-uH-EM4" id="jKQ-jZ-Krq"/>
+                                    <outlet property="calendarDelegate" destination="Lq4-uH-EM4" id="91N-o2-aDa"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="n0B-Ay-N2r" firstAttribute="width" secondItem="qBy-WC-YZ8" secondAttribute="width" id="HxG-Ci-WqE"/>
+                            <constraint firstItem="qBy-WC-YZ8" firstAttribute="leading" secondItem="l1F-kA-ylr" secondAttribute="leading" constant="20" id="OUZ-Jk-odn"/>
+                            <constraint firstItem="zN0-Lu-a26" firstAttribute="centerX" secondItem="l1F-kA-ylr" secondAttribute="centerX" id="Txh-pP-L7y"/>
+                            <constraint firstItem="n0B-Ay-N2r" firstAttribute="height" secondItem="l1F-kA-ylr" secondAttribute="height" multiplier="1:16" id="cDL-Na-R5k"/>
+                            <constraint firstAttribute="trailing" secondItem="qBy-WC-YZ8" secondAttribute="trailing" constant="20" id="cf8-4m-T4o"/>
+                            <constraint firstItem="qBy-WC-YZ8" firstAttribute="height" secondItem="l1F-kA-ylr" secondAttribute="height" multiplier="1:2" id="e5G-Ew-LAM"/>
+                            <constraint firstItem="zN0-Lu-a26" firstAttribute="top" secondItem="vWg-uB-jl6" secondAttribute="bottom" constant="8" id="jFW-rP-Aow"/>
+                            <constraint firstItem="qBy-WC-YZ8" firstAttribute="top" secondItem="n0B-Ay-N2r" secondAttribute="bottom" constant="8" id="kny-C8-Lcg"/>
+                            <constraint firstItem="qBy-WC-YZ8" firstAttribute="centerX" secondItem="l1F-kA-ylr" secondAttribute="centerX" id="n3S-Aw-xuz"/>
+                            <constraint firstItem="n0B-Ay-N2r" firstAttribute="top" secondItem="zN0-Lu-a26" secondAttribute="bottom" constant="8" id="tS8-Fa-afO"/>
+                            <constraint firstItem="n0B-Ay-N2r" firstAttribute="centerX" secondItem="l1F-kA-ylr" secondAttribute="centerX" id="xzg-H0-uex"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="84G-vP-mZ5">
+                    <navigationItem key="navigationItem" title="Calendar" id="84G-vP-mZ5">
                         <barButtonItem key="leftBarButtonItem" image="ic_menu" id="nGS-vm-fVw"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="calendarView" destination="qBy-WC-YZ8" id="lnL-YC-zi2"/>
                         <outlet property="menuButton" destination="nGS-vm-fVw" id="QYV-G5-rZe"/>
+                        <outlet property="menuView" destination="n0B-Ay-N2r" id="uza-Zs-sLj"/>
+                        <outlet property="monthLabel" destination="zN0-Lu-a26" id="3pc-no-Vyo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu7-rk-XF6" userLabel="First Responder" sceneMemberID="firstResponder"/>

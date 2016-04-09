@@ -8,8 +8,12 @@
 
 import UIKit
 
-class MenuTableViewController: UITableViewController {
+class MenuTableViewController: UITableViewController, SWRevealViewControllerDelegate {
     
+    let panRec = UIPanGestureRecognizer()
+    
+    
+    var unfocusedView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,5 +164,10 @@ class MenuTableViewController: UITableViewController {
     //***************************************************
     // MARK: - Custom Methods
     //***************************************************
+    func revealControllerPanGestureEnded(revealController: SWRevealViewController!) {
+        if unfocusedView != nil {
+            unfocusedView.hidden = true
+        }
+    }
 }
 

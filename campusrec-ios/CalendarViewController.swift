@@ -7,17 +7,45 @@
 //
 
 import UIKit
+import CVCalendar
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController,
+    CVCalendarViewDelegate,
+    CVCalendarMenuViewDelegate,
+    CVCalendarViewAppearanceDelegate
+    {
+    
+    //***************************************************
+    // MARK: - Outlets and Variables
+    //***************************************************
+    
+    //Menu
 
     @IBOutlet var menuButton: UIBarButtonItem!
     
+    //Calendar
+    
+    @IBOutlet var monthLabel: UILabel!
+    @IBOutlet var menuView: CVCalendarMenuView!
+    @IBOutlet var calendarView: CVCalendarView!
+    var selectedDay: DayView!
+    
+    //View
     
     var unfocusedView: UIView!
+    
+    
+    //***************************************************
+    // MARK: - View Lifecycle
+    //***************************************************
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        monthLabel.text = CVDate(date: NSDate()).globalDescription
+        
+        //Set up content blur
         unfocusedView = UIView()
         unfocusedView.frame = self.view.frame
         unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
@@ -25,6 +53,8 @@ class CalendarViewController: UIViewController {
         self.view.addSubview(unfocusedView)
         unfocusedView.hidden = true
         
+        self.calendarView.calendarAppearanceDelegate = self
+        self.calendarView.animatorDelegate = self
 
         
         if self.revealViewController() != nil {
@@ -40,6 +70,14 @@ class CalendarViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Commit frames' updates
+        self.calendarView.commitCalendarViewUpdate()
+        self.menuView.commitMenuViewUpdate()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -51,6 +89,65 @@ class CalendarViewController: UIViewController {
     }
     */
     
+    
+    
+    //***************************************************
+    // MARK: - Calender Delegate Methods
+    //***************************************************
+    
+    func presentationMode() -> CalendarMode {
+        return .MonthView
+    }
+    
+    func firstWeekday() -> Weekday {
+        return .Sunday
+    }
+    
+    ///Changes the top day to the selected day
+    func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
+        print("\(dayView.date.commonDescription) is selected!")
+        
+        monthLabel.text = dayView.date.commonDescription
+        selectedDay = dayView
+    }
+    
+    func shouldShowWeekdaysOut() -> Bool {
+        return SHOULD_SHOW_DAYS_OUT
+    }
+    
+    func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
+        return true
+    }
+    
+    func dayLabelWeekdaySelectedBackgroundColor() -> UIColor {
+        return COLOR_ACCENT
+    }
+    
+    //Changes Current day text color when not selected
+    func dayLabelPresentWeekdayTextColor() -> UIColor {
+        return COLOR_ACCENT
+    }
+    
+    func dayLabelPresentWeekdayInitallyBold() -> Bool {
+        return true
+    }
+
+    func dayLabelPresentWeekdaySelectedBackgroundColor() -> UIColor {
+        return COLOR_GOLD
+    }
+    
+    /*func dayLabelPresentWeekdaySelectedTextColor() -> UIColor {
+        return COLOR_PRIMARY_TEXT
+    }*/
+    
+       
+    //***************************************************
+    // MARK: - Custom Methods
+    //***************************************************
+    
+ 
+
+    ///Called on menuButton press
     func pressedMenuButton() {
         
         self.revealViewController().revealToggle(self)

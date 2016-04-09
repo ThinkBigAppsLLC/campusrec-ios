@@ -44,6 +44,8 @@ let COLOR_PRIMARY_TEXT = UIColor(netHex: 0x292F33)
 let COLOR_ODD_ROWS = UIColor(netHex: 0xF9F9F9)
 let COLOR_ACCENT_DARK = UIColor(netHex: 0x761013)
 
+let COLOR_GARNET = UIColor(netHex: 0x782F40)
+let COLOR_GOLD = UIColor(netHex: 0xCEB888)
 
 //***************************************************
 // MARK: - Locations
@@ -58,3 +60,16 @@ let LOCATION_STRING_ARRAY = [
     "Main Campus Fields",
     "Westside Courts"
 ]
+
+
+
+//***************************************************
+// MARK: - Calendar Settings
+//***************************************************
+
+let SHOULD_SHOW_DAYS_OUT = true
+
+
+
+
+
