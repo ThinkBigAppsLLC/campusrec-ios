@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Fabric
+import TwitterKit
+import Answers
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,8 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        //Fabric Setup
+        Fabric.with([Answers.self, Twitter.self])
+
+        //Top bar styling
+    UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         UINavigationBar.appearance().barTintColor = COLOR_ACCENT
         UINavigationBar.appearance().tintColor = COLOR_SECONDARY_BACKGROUND
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : COLOR_SECONDARY_BACKGROUND]

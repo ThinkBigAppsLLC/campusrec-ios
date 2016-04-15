@@ -64,6 +64,7 @@ extension String
 }
 
 
+
 func removeFromString(toRemove : String, stringToManipulate : String) -> String {
     let returnString = stringToManipulate.stringByReplacingOccurrencesOfString(toRemove, withString: "")
     return returnString

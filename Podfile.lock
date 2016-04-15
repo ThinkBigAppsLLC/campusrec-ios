@@ -2,24 +2,42 @@ PODS:
   - Alamofire (3.3.1)
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
+  - Answers (1.2.0):
+    - Fabric (~> 1.6.3)
+  - CSStickyHeaderFlowLayout (0.2.10)
   - CVCalendar (1.2.9)
+  - Fabric (1.6.7)
   - ImageSlideshow (0.4.0):
     - ImageSlideshow/Core (= 0.4.0)
   - ImageSlideshow/Alamofire (0.4.0):
     - AlamofireImage (~> 2.0)
     - ImageSlideshow/Core
   - ImageSlideshow/Core (0.4.0)
+  - TwitterCore (2.0.2):
+    - Fabric
+  - TwitterKit (2.0.2):
+    - TwitterCore (= 2.0.2)
 
 DEPENDENCIES:
   - Alamofire
+  - Answers
+  - CSStickyHeaderFlowLayout
   - CVCalendar (~> 1.2.9)
+  - Fabric
   - ImageSlideshow (~> 0.3)
   - ImageSlideshow/Alamofire
+  - TwitterCore
+  - TwitterKit
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  Answers: f47bc44937ab00fe5a119b16df28e1d1aeadcf84
+  CSStickyHeaderFlowLayout: 5366582779d8b7c9ba9b9cc729c218cc23888776
   CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   ImageSlideshow: 0d3632bc0c2b4d3fff24a49ce4d3022af8238b03
+  TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
+  TwitterKit: c4e40f289a3d7cc9fab9f241edd7502385468b65
 
 COCOAPODS: 0.39.0

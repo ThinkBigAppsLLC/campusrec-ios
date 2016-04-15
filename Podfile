@@ -7,4 +7,9 @@ target 'campusrec-ios' do
     pod 'ImageSlideshow', '~> 0.3'
     pod "ImageSlideshow/Alamofire"
     pod 'CVCalendar', '~> 1.2.9'
+    pod 'Fabric'
+    pod 'Answers'
+    pod 'TwitterKit'
+    pod 'TwitterCore'
+    pod "CSStickyHeaderFlowLayout"
 end

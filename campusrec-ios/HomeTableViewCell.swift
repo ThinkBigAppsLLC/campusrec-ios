@@ -11,8 +11,8 @@ import UIKit
 class HomeTableViewCell: UITableViewCell {
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
-
-    @IBOutlet var status: UILabel!
+    @IBOutlet var disclosureButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

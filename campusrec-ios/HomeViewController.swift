@@ -8,6 +8,8 @@
 
 import UIKit
 import ImageSlideshow
+import TwitterKit
+
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -15,16 +17,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Variables and Outlets
     //***************************************************
 
-    @IBOutlet var tableView: UITableView!
-
-    @IBOutlet var slideshow: ImageSlideshow!
+    
     @IBOutlet var menuButton: UIBarButtonItem!
     
-    @IBOutlet var underView: UIView!
+    @IBOutlet var slideshow: ImageSlideshow!
     
+    @IBOutlet var statusView: UIView!
+    @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var twitterBanner: UIView!
+    
+    //@IBOutlet var tweetView: TWTRTweetView!
     
     var unfocusedView: UIView!
+    
+    var selectedIndexPathRow : Int?
     //***************************************************
     // MARK: - View Management
     //***************************************************
@@ -33,6 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Create the unfocused view, which is a semi-opaque film that focuses the menu
         unfocusedView = UIView()
         unfocusedView.frame = self.view.frame
         unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
@@ -42,44 +50,61 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        //Set up tableview
+        self.tableView.reloadData()
+        self.tableView.tableFooterView = UIView()
         
         if self.revealViewController() != nil {
             menuButton.target = self
             menuButton.action = "pressedMenuButton"
-            /*menuButton.target = self.revealViewController()
-             menuButton.action = "revealToggle:"*/
             //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        //Set up menu
-        /*if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }*/
+
         
         //Set up slideshow
         slideshow.backgroundColor = UIColor.clearColor()
         slideshow.slideshowInterval = 5.0
         slideshow.pageControlPosition = PageControlPosition.Hidden
-
-        
          slideshow.setImageInputs([
                 AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.7_drop-it-hot_web_ER.jpg")!,
                 AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.16_RezYoga_AJ_0.jpg")!,
                 AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.1_April_OP_web_DR.jpg")!,
                 AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.13_Sunset_Rez_web_DR.jpg")!
             ])
-
-        underView.backgroundColor = COLOR_ACCENT
         
-        // Do any additional setup after loading the view.
+        
+        //Set up twitter
+        /*let client = TWTRAPIClient()
+        client.loadTweetWithID("20") { tweet, error in
+            if let t = tweet {
+                self.tweetView.configureWithTweet(t)
+            } else {
+                print("Failed to load Tweet: \(error!.localizedDescription)")
+            }
+        }*/
+
+        
+        //Change color of the banners
+        statusView.backgroundColor = COLOR_ACCENT
+        //twitterBanner.backgroundColor = COLOR_ACCENT
+        
+        
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.tableView.sizeToFit()
+        
+
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.tableView.sizeToFit()
         
     }
 
@@ -87,6 +112,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toDetail" {
+            let destinationViewController = segue.destinationViewController as! StatusDetailCollectionViewController
+            destinationViewController.titleString = LOCATION_STRING_ARRAY[selectedIndexPathRow!]
+            destinationViewController.locationIndex = selectedIndexPathRow!
+        }
+     }
+    
+
     
     
     //***************************************************
@@ -111,6 +150,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedIndexPathRow = indexPath.row
+        performSegueWithIdentifier("toDetail", sender: self)
+    }
+    
+    
+    
+    
+    
     func pressedMenuButton() {
         
         self.revealViewController().revealToggle(self)
@@ -121,14 +169,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }

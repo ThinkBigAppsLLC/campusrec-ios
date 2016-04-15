@@ -85,18 +85,15 @@ class MenuTableViewController: UITableViewController, SWRevealViewControllerDele
             performSegueWithIdentifier("toHome", sender: nil)
             break
         case 1:
-            performSegueWithIdentifier("toStatus", sender: nil)
-            break
-        case 2:
             performSegueWithIdentifier("toCalendar", sender: nil)
             break
-        case 3:
+        case 2:
             performSegueWithIdentifier("toIM", sender: nil)
             break
-        case 4:
+        case 3:
             performSegueWithIdentifier("toReservations", sender: nil)
             break
-        case 5:
+        case 4:
             performSegueWithIdentifier("toContact", sender: nil)
             break
         default:
@@ -115,13 +112,6 @@ class MenuTableViewController: UITableViewController, SWRevealViewControllerDele
         switch segue.identifier! {
         case "toHome":
             let upcomingVC = segue.destinationViewController.childViewControllers[0] as! HomeViewController
-            if upcomingVC.unfocusedView != nil {
-                upcomingVC.unfocusedView.hidden = true
-            }
-            break
-        case "toStatus":
-            
-            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! StatusViewController
             if upcomingVC.unfocusedView != nil {
                 upcomingVC.unfocusedView.hidden = true
             }
@@ -145,10 +135,8 @@ class MenuTableViewController: UITableViewController, SWRevealViewControllerDele
             }
             break
         case "toContact":
-            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! ContactViewController
-            if upcomingVC.unfocusedView != nil {
-                upcomingVC.unfocusedView.hidden = true
-            }
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! ContactCollectionViewController
+           
             break
         default:
             break

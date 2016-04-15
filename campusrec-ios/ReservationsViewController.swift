@@ -12,6 +12,8 @@ class ReservationsViewController: UIViewController {
 
     @IBOutlet var menuButton: UIBarButtonItem!
     var unfocusedView: UIView!
+    
+    let url = "http://fsucr.setmore.com/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,10 @@ class ReservationsViewController: UIViewController {
             menuButton.target = self
             menuButton.action = "pressedMenuButton"
             //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        if let requestUrl = NSURL(string: url) {
+            UIApplication.sharedApplication().openURL(requestUrl)
         }
 
         // Do any additional setup after loading the view.
