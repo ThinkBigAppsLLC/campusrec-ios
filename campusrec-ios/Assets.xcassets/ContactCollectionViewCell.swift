@@ -14,4 +14,15 @@ class ContactCollectionViewCell: UICollectionViewCell {
     @IBOutlet var jobLabel: UILabel!
     @IBOutlet var callButton: UIButton!
     @IBOutlet var mailButton: UIButton!
+    
+    var phoneNumber : String!
+    
+    @IBAction func didTouchPhone(sender: UIButton) {
+        if phoneNumber != nil {
+            callNumber(phoneNumber)
+        }
+    }
+    @IBAction func didTouchEmail(sender: UIButton) {
+        
+    }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ImageSlideshow
 import TwitterKit
 
 
@@ -20,16 +19,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var menuButton: UIBarButtonItem!
     
-    @IBOutlet var slideshow: ImageSlideshow!
     
     @IBOutlet var statusView: UIView!
+    @IBOutlet var statusLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var twitterBanner: UIView!
     
-    //@IBOutlet var tweetView: TWTRTweetView!
-    
-    var unfocusedView: UIView!
+    @IBOutlet var rainlineView: UIView!
+    @IBOutlet var rainlineLabel: UILabel!
+
     
     var selectedIndexPathRow : Int?
     //***************************************************
@@ -41,14 +39,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         //Create the unfocused view, which is a semi-opaque film that focuses the menu
-        unfocusedView = UIView()
-        unfocusedView.frame = self.view.frame
-        unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
-        unfocusedView.alpha = 0.5
-        self.view.addSubview(unfocusedView)
-        unfocusedView.hidden = true
-        
-        
+        statusView.layer.shouldRasterize = false
+        statusView.layer.shadowColor = UIColor.blackColor().CGColor
+        statusView.layer.shadowOpacity = 1
+        statusView.layer.shadowOffset = CGSizeZero
+        statusView.layer.shadowRadius = 3
+        //statusView.layer.shouldRasterize = true
         
         //Set up tableview
         self.tableView.reloadData()
@@ -57,36 +53,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if self.revealViewController() != nil {
             menuButton.target = self
             menuButton.action = "pressedMenuButton"
-            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-
-        
-        //Set up slideshow
-        slideshow.backgroundColor = UIColor.clearColor()
-        slideshow.slideshowInterval = 5.0
-        slideshow.pageControlPosition = PageControlPosition.Hidden
-         slideshow.setImageInputs([
-                AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.7_drop-it-hot_web_ER.jpg")!,
-                AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.16_RezYoga_AJ_0.jpg")!,
-                AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.1_April_OP_web_DR.jpg")!,
-                AlamofireSource(urlString: "http://campusrec.fsu.edu/sites/default/files/4.13_Sunset_Rez_web_DR.jpg")!
-            ])
+        statusLabel.layer.shouldRasterize = false
+        statusLabel.attributedText = secondWordBolded("Current Status", size: 17.0)
         
         
-        //Set up twitter
-        /*let client = TWTRAPIClient()
-        client.loadTweetWithID("20") { tweet, error in
-            if let t = tweet {
-                self.tweetView.configureWithTweet(t)
-            } else {
-                print("Failed to load Tweet: \(error!.localizedDescription)")
-            }
-        }*/
-
         
+        
+        rainlineLabel.attributedText = secondWordBolded("Rain LINE", size: 17.0)
+        rainlineView.layer.shouldRasterize = false
+        rainlineView.layer.shadowColor = UIColor.blackColor().CGColor
+        rainlineView.layer.shadowOpacity = 1
+        rainlineView.layer.shadowOffset = CGSizeZero
+        rainlineView.layer.shadowRadius = 3
         //Change color of the banners
-        statusView.backgroundColor = COLOR_ACCENT
+        //statusView.backgroundColor = COLOR_ACCENT
         //twitterBanner.backgroundColor = COLOR_ACCENT
         
         
@@ -97,7 +78,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.sizeToFit()
-        
+        self.tableView.tableFooterView = UIView()
 
         
     }
@@ -119,7 +100,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toDetail" {
-            let destinationViewController = segue.destinationViewController as! StatusDetailCollectionViewController
+            let destinationViewController = segue.destinationViewController as! HomeDetailViewController
             destinationViewController.titleString = LOCATION_STRING_ARRAY[selectedIndexPathRow!]
             destinationViewController.locationIndex = selectedIndexPathRow!
         }
@@ -139,14 +120,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("homeCell", forIndexPath: indexPath) as! HomeTableViewCell
         cell.locationLabel.text = LOCATION_STRING_ARRAY[indexPath.row]
-        cell.statusLabel.text = "Open"
-        
-        if cell.statusLabel.text == "Open" {
+        if isOpen(indexPath.row, currentDay: NSDate().dayOfWeek()!) {
+            cell.statusLabel.text = "Open"
             cell.statusLabel.textColor = UIColor(netHex: 0x006400)
         }
         else {
+            cell.statusLabel.text = "Closed"
+            cell.backgroundColor = UIColor(netHex: 0xEAEAEA)
             cell.statusLabel.textColor = COLOR_ACCENT
         }
+        
+
         return cell
     }
     
@@ -163,11 +147,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.revealViewController().revealToggle(self)
         let menuVC = self.revealViewController().rearViewController.childViewControllers[0] as! MenuTableViewController
-        menuVC.unfocusedView = self.unfocusedView
         
-        unfocusedView.hidden = false
     }
 
+    @IBAction func didPressRainlineButton(sender: UIButton) {
+        
+    }
 
   
 }

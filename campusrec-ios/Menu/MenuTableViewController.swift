@@ -111,28 +111,19 @@ class MenuTableViewController: UITableViewController, SWRevealViewControllerDele
     
         switch segue.identifier! {
         case "toHome":
-            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! HomeViewController
-            if upcomingVC.unfocusedView != nil {
-                upcomingVC.unfocusedView.hidden = true
-            }
+            let upcomingVC = segue.destinationViewController.childViewControllers[0] as! HomeCollectionViewController
             break
         case "toCalendar":
             let upcomingVC = segue.destinationViewController.childViewControllers[0] as! CalendarViewController
-            if upcomingVC.unfocusedView != nil {
-                upcomingVC.unfocusedView.hidden = true
-            }
+
             break
         case "toIM":
             let upcomingVC = segue.destinationViewController.childViewControllers[0] as! IMViewController
-            if upcomingVC.unfocusedView != nil {
-                upcomingVC.unfocusedView.hidden = true
-            }
+
             break
         case "toReservations":
             let upcomingVC = segue.destinationViewController.childViewControllers[0] as! ReservationsViewController
-            if upcomingVC.unfocusedView != nil {
-                upcomingVC.unfocusedView.hidden = true
-            }
+
             break
         case "toContact":
             let upcomingVC = segue.destinationViewController.childViewControllers[0] as! ContactCollectionViewController

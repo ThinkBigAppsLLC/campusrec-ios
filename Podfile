@@ -11,5 +11,4 @@ target 'campusrec-ios' do
     pod 'Answers'
     pod 'TwitterKit'
     pod 'TwitterCore'
-    pod "CSStickyHeaderFlowLayout"
 end

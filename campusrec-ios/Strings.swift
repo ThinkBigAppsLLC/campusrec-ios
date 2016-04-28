@@ -129,19 +129,103 @@ let DETAILED_INFO_TEXT = [
     "Renovated in 2009, the Westside Courts (formerly known as the Salley Hall Courts) behind Salley Hall and near Fresh Food Company on the westside of FSU's Main Campus features 2 outdoor basketball courts, 2 outdoor tennis courts, and a sand volleyball court along with a new pavilion space with restrooms, water fountains, picnic tables, and an equipment checkout service. The Westside Courts is an open-access facility, providing space for the recreational activities of current FSU students, faculty, and staff during daylight hours, weather permitting. Evening hours with lighted courts are available on weekday nights during the fall and spring semesters. Users may be required to present current, valid FSUCard during prime hours to access the facility.",
 ]
 
-let CONTACT_US_TEXT = [
-    //Leach
-    "",
-    //Res
-    "",
-    //Movement clinic
-    "",
-    //Rec SportsPlex
-    "",
-    //Main campus fields
-    "",
-    //Westside courts
-    "",
+
+
+let CONTACT_LOCATION_INFO : Array<String> = [
+    "Campus Rec Administrative Offices",
+    "Leach Center / Fitness / Aquatics",
+    "Fitness & Movement Clinic / Wellness",
+    "Intramural Sports",
+    "Competitive Sports Facilities / Sport Clubs",
+    "FSU Reservation / Outdoor Pursuits / FSU Challenge / Camp Flastacowo"
+]
+
+let CONTACT_ADMIN_ARRAY : Array<Array<String>> = [
+        ["Pattie Malarney","Senior Associate Director","8506448606"],
+        ["David Peters","Associate Director","8506447698"],
+        ["Alex Marse","Assistant Director, Marketing & Special Events","8506450353"],
+        ["Jenna Ulewicz","Human Resources Specialist","8506440549"],
+        ["Kasony Sims","Senior Accountant","8506440555"],
+        ["Jordan Elmore","Accountant","8506440554"],
+        ["Ian Michael","Administrative Assistant","8506450792"],
+        ["Bobby Broome","Maintenance Superintendent","8506440545"]
+]
+
+        
+let CONTACT_LEACH_ARRAY : Array<Array<String>> = [
+    ["General Information", "Leach Center Front Desk",	"8506440548"],
+    ["Darryl Lovett","Assistant Director, Fitness Facility Operations",	"8506450475"],
+    ["Lynn Grasso",	"Assistant Director, Fitness Programs",	"8506440546"],
+    ["Mike DiBiasi","Coordinator, Strength & Conditioning",	"8506441613"],
+    ["General Info","Group Fitness Office",	"8506440547"],
+    ["Suzi Berkey",	"Coordinator, Member Services",	"8506440550"]
+]
+
+let CONTACT_WELLNESS_ARRAY: Array<Array<String>> = [
+    ["General Info","FMC Front Desk", "8506450601"],
+    ["April Moore","Assistant Director, Wellness Education & Outreach","8506450603"]
+]
+
+let CONTACT_IM_ARRAY : Array<Array<String>> = [
+    ["General Info","Intramural Sports Office", "8506442430"],
+    ["Chris Schmoldt","Assistant Director, Intramural Sports","8506440552"],
+    ["Ben Holmes","Coordinator, Intramural Sports","8506444925"],
+    ["Antonio Gonzalez","Coordinator, Intramural Sports","8506450386"]
+]
+
+let CONTACT_CLUBS_ARRAY : Array<Array<String>> = [
+    ["General Info","Sport Club Program Office","8506447902"],
+    ["Mike Collins","Assistant Director, Competitive Sports & Facilities",	"8506447699"],
+    ["Christian Obando","Coordinator, Sport Clubs",	"8506450923"],
+    ["Andrew Funari","Graduate Assistant, Competitive Sports",	"8506450922"]
+]
+
+let CONTACT_RES_ARRAY : Array<Array<String>> = [
+    ["General Info","Outdoor Pursuits & Rez Waterfront","8506442449"],
+    ["General Info","Rez Admin Office","8506446892"],
+    ["Jen McKee","Assistant Director, Rez Operations & Risk Management","8506444531"],
+    ["Jordan Merrick" ,"Assistant Director, Outdoor & Experiential Programs","8506446124"],
+    ["Travis Johnson" ,"Coordinator, Outdoor Pursuits","8506452750"]
+]
+
+
+//Form:
+//  Name, 
+//  Open hours, 
+//  Closed hours,  
+//  Address, 
+//  Phone number
+let LOCATION_INFO : Array<Array<AnyObject>> = [
+    ["Leach Recreation Center",
+        ["11:00","06:00","06:00","06:00","06:00","06:00","11:00"],
+        ["21:00","23:00","23:00","23:00","23:00","22:00","21:00"],
+        "118 Varsity Way, Tallahassee, FL 32306",
+        "8506440548"],
+    ["FSU Reservation",
+        ["12:00","14:00","14:00","14:00","14:00","12:00","12:00"],
+        ["19:00","19:00","19:00","19:00","19:00","19:00","19:00"],
+        "3226 Flastacowo Road, Tallahassee, FL 32310",
+        "8506446892"],
+    ["Fitness & Movement Clinic",
+        ["08:00","06:00","06:00","06:00","06:00","06:00","08:00"],
+        ["17:00","21:00","21:00","21:00","21:00","21:00","17:00"],
+        "960 Learning Way, Tallahassee, FL 32306",
+        "8506450601"],
+    ["Rec SportsPlex",
+        ["05:30","06:30","06:30","06:30","06:30","Closed", "Closed"],
+        ["22:30","22:30","22:30","22:30","22:30","Closed","Closed"],
+        "3950 Tyson Rd, Tallahassee, FL 32310",
+        "8506457246"],
+    ["Main Campus Fields",
+        ["Sunrise","Sunrise","Sunrise","Sunrise","Sunrise","Sunrise","Sunrise"],
+        ["Sunset","Sunset","Sunset","Sunset","Sunset","Sunset","Sunset"],
+        "1001 W. St. Augustine Street, Tallahassee, 32306 ",
+        "8506447902"],
+    ["Westside Courts",
+        ["Sunrise","Sunrise","Sunrise","Sunrise","Sunrise","Sunrise","Sunrise"],
+        ["Sunset","Sunset","Sunset","Sunset","Sunset","Sunset","Sunset"],
+        "240 Hull Drive, Tallahassee, 32306",
+        "8506447902"]
 ]
 
 

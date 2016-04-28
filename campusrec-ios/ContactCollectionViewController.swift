@@ -53,21 +53,78 @@ class ContactCollectionViewController: UICollectionViewController, UICollectionV
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return CONTACT_CATEGORY_STRING.count
+        return CONTACT_LOCATION_INFO.count
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        switch section {
+        case 0:
+            return CONTACT_ADMIN_ARRAY.count
+        case 1:
+            return CONTACT_LEACH_ARRAY.count
+        case 2:
+            return CONTACT_WELLNESS_ARRAY.count
+        case 3:
+            return CONTACT_IM_ARRAY.count
+        case 4:
+            return CONTACT_CLUBS_ARRAY.count
+        case 5:
+            return CONTACT_RES_ARRAY.count
+        default:
+            return 0
+        }
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ContactCollectionViewCell
-        cell.personLabel.text = "David Peters"
-        cell.jobLabel.text = "Associate Director"
-        // Configure the cell
-    
+        switch indexPath.section {
+        case 0:
+            cell.personLabel.text = CONTACT_ADMIN_ARRAY[indexPath.row][0]
+            cell.jobLabel.text = CONTACT_ADMIN_ARRAY[indexPath.row][1]
+            cell.phoneNumber = CONTACT_ADMIN_ARRAY[indexPath.row][2]
+            break
+        case 1:
+            cell.personLabel.text = CONTACT_LEACH_ARRAY[indexPath.row][0]
+            cell.jobLabel.text = CONTACT_LEACH_ARRAY[indexPath.row][1]
+            cell.phoneNumber = CONTACT_LEACH_ARRAY[indexPath.row][2]
+            break
+        case 2:
+            cell.personLabel.text = CONTACT_WELLNESS_ARRAY[indexPath.row][0]
+            cell.jobLabel.text = CONTACT_WELLNESS_ARRAY[indexPath.row][1]
+            cell.phoneNumber = CONTACT_WELLNESS_ARRAY[indexPath.row][2]
+            break
+        case 3:
+            cell.personLabel.text = CONTACT_IM_ARRAY[indexPath.row][0]
+            cell.jobLabel.text = CONTACT_IM_ARRAY[indexPath.row][1]
+            cell.phoneNumber = CONTACT_IM_ARRAY[indexPath.row][2]
+            break
+        case 4:
+            cell.personLabel.text = CONTACT_CLUBS_ARRAY[indexPath.row][0]
+            cell.jobLabel.text = CONTACT_CLUBS_ARRAY[indexPath.row][1]
+            cell.phoneNumber = CONTACT_CLUBS_ARRAY[indexPath.row][2]
+            break
+        case 5:
+            cell.personLabel.text = CONTACT_RES_ARRAY[indexPath.row][0]
+            cell.jobLabel.text = CONTACT_RES_ARRAY[indexPath.row][1]
+            cell.phoneNumber = CONTACT_RES_ARRAY[indexPath.row][2]
+            break
+        default:
+            cell.personLabel.text = ""
+            cell.jobLabel.text = ""
+            break
+        }
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.whiteColor()
+        }
+        else {
+            cell.backgroundColor = COLOR_ODD_ROWS
+        }
+
+        
+        
+        
         return cell
     }
     
@@ -75,13 +132,14 @@ class ContactCollectionViewController: UICollectionViewController, UICollectionV
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,withReuseIdentifier: "headerView",forIndexPath: indexPath) as! ContactCollectionReusableView
-            headerView.categoryLabel.text = CONTACT_CATEGORY_STRING[indexPath.section]
+            headerView.categoryLabel.text = CONTACT_LOCATION_INFO[indexPath.section]
             
             
             return headerView
         default:
             assert(false, "Unexpected element kind")
         }
+        return UICollectionReusableView()
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 50)
@@ -101,36 +159,6 @@ class ContactCollectionViewController: UICollectionViewController, UICollectionV
     
 
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
     
     func pressedMenuButton() {
         

@@ -16,7 +16,7 @@ class TwitterViewController: TWTRTimelineViewController {
 
         //Fabric implementation to embed a twitter feed
         let client = TWTRAPIClient()
-        self.dataSource = TWTRUserTimelineDataSource(screenName:  "FSUCampusRec", APIClient: client)
+        self.dataSource = TWTRUserTimelineDataSource(screenName:  "fsuimrainline", APIClient: client)
         
         self.showTweetActions = true
     }

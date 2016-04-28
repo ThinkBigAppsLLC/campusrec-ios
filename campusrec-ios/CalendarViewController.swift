@@ -32,7 +32,6 @@ class CalendarViewController: UIViewController,
     
     //View
     
-    var unfocusedView: UIView!
     
     
     //***************************************************
@@ -45,13 +44,6 @@ class CalendarViewController: UIViewController,
         
         monthLabel.text = CVDate(date: NSDate()).globalDescription
         
-        //Set up content blur
-        unfocusedView = UIView()
-        unfocusedView.frame = self.view.frame
-        unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
-        unfocusedView.alpha = 0.5
-        self.view.addSubview(unfocusedView)
-        unfocusedView.hidden = true
         
         self.calendarView.calendarAppearanceDelegate = self
         self.calendarView.animatorDelegate = self
@@ -151,7 +143,6 @@ class CalendarViewController: UIViewController,
     func pressedMenuButton() {
         
         self.revealViewController().revealToggle(self)
-        unfocusedView.hidden = false
     }
 
 }

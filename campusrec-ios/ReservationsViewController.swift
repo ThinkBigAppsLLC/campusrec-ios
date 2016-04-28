@@ -11,19 +11,13 @@ import UIKit
 class ReservationsViewController: UIViewController {
 
     @IBOutlet var menuButton: UIBarButtonItem!
-    var unfocusedView: UIView!
     
     let url = "http://fsucr.setmore.com/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        unfocusedView = UIView()
-        unfocusedView.frame = self.view.frame
-        unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
-        unfocusedView.alpha = 0.5
-        self.view.addSubview(unfocusedView)
-        unfocusedView.hidden = true
+
 
         
         if self.revealViewController() != nil {
@@ -58,7 +52,6 @@ class ReservationsViewController: UIViewController {
     func pressedMenuButton() {
         
         self.revealViewController().revealToggle(self)
-        unfocusedView.hidden = false
     }
 
 }

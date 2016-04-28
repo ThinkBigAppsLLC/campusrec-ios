@@ -11,25 +11,15 @@ import UIKit
 class IMViewController: UIViewController {
     
     @IBOutlet var menuButton: UIBarButtonItem!
-
-    @IBOutlet var webView: UIWebView!
     
-    let url = "http://fsucr.setmore.com/"
+    let url = "http://campusrec.fsu.edu/sports/im"
     
-    var unfocusedView: UIView!
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        unfocusedView = UIView()
-        unfocusedView.frame = self.view.frame
-        unfocusedView.backgroundColor = COLOR_PRIMARY_TEXT
-        unfocusedView.alpha = 0.5
-        self.view.addSubview(unfocusedView)
-        unfocusedView.hidden = true
-
+      
 
         if self.revealViewController() != nil {
             menuButton.target = self
@@ -38,10 +28,10 @@ class IMViewController: UIViewController {
             
         }
         
-        let requestURL = NSURL(string:url)
-        let request = NSURLRequest(URL: requestURL!)
-        webView.loadRequest(request)
-        
+
+        if let requestUrl = NSURL(string: url) {
+            UIApplication.sharedApplication().openURL(requestUrl)
+        }
 
     }
 
@@ -63,7 +53,6 @@ class IMViewController: UIViewController {
     
     func pressedMenuButton() {
         self.revealViewController().revealToggle(self)
-        unfocusedView.hidden = false
     }
 
 }
