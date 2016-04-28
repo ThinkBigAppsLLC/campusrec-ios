@@ -766,7 +766,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AAE31EDB8FB8555D62BBEFF0 /* Pods-campusrec-ios.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -787,7 +787,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1458F45CD79020C4940CE2C5 /* Pods-campusrec-ios.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
