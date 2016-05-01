@@ -150,8 +150,8 @@ func isOpen(locationIndex : Int, currentDay : Int) -> Bool {
     let thisLocation = LOCATION_INFO[locationIndex]
     let openHours = thisLocation[1]
     let closedHours = thisLocation[2]
-    let todayOpenHour = openHours.objectAtIndex(currentDay) as! String
-    let todayClosedHour = closedHours.objectAtIndex(currentDay) as! String
+    let todayOpenHour = openHours[currentDay-1] as! String
+    let todayClosedHour = closedHours[currentDay-1] as! String
     
     //If closed returns false
     if todayOpenHour == "Closed" {
